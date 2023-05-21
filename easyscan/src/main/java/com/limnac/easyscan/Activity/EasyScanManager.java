@@ -1,9 +1,7 @@
-package com.limnac.easyscan;
+package com.limnac.easyscan.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
-
-import com.limnac.easyscan.Activity.ScanActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,20 +22,13 @@ public class EasyScanManager {
 
     private IEasyScan mIEasyScan;
 
-    public void setIEasyScanOnSuccess(String msg) {
+    protected void setIEasyScanOnSuccess(String msg) {
         if (mIEasyScan != null) {
-            mIEasyScan.onSuccess(msg);
+            mIEasyScan.getScanInfo(msg);
         }
     }
 
-    public void setIEasyScanOnFailed(int code, String msg) {
-        if (mIEasyScan != null) {
-            mIEasyScan.onFailed(code, msg);
-        }
-    }
-
-
-    public void getScanInfo(Activity activity, @NotNull IEasyScan mIEasyScan) {
+    public void startEasyScan(Activity activity, @NotNull IEasyScan mIEasyScan) {
         this.mIEasyScan = mIEasyScan;
         Intent intent = new Intent(activity, ScanActivity.class);
         activity.startActivity(intent);

@@ -1,7 +1,6 @@
 package com.limnac.easyscan.Activity;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -283,6 +282,7 @@ public class ScanActivity extends Activity implements SurfaceHolder.Callback {
         //把扫码结果返回到MainActivity
         Intent intent = new Intent();
         intent.putExtra("barCode", rawResult.getText());
+        EasyScanManager.getInstance().setIEasyScanOnSuccess(rawResult.getText());
         setResult(RESULT_OK, intent);
         finish();
 
