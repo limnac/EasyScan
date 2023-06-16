@@ -17,7 +17,7 @@
 
 - ```css
   dependencies {
-  	        implementation 'com.github.limnac:EasyScan:Tag'
+  	        implementation 'com.github.limnac:EasyScan:1.0.0'
   	}
   ```
 
